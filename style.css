@@ -31,8 +31,9 @@ body {
     width: 100%;
     max-width: 540px;
     margin: 100px auto 20px;
-    padding: 40px 30px 70px;
+    padding: 30px;
     border-radius: 10px;
+    background-color: #1e1e1e;
 }
 
 .todo-app h2 {
@@ -42,7 +43,7 @@ body {
     margin-bottom: 20px;
 }
 
-todo-app img {
+.todo-app img {
     width: 30px;
     margin-left: 10px;
 }
@@ -55,36 +56,44 @@ todo-app img {
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
+    border: 2px solid #ebeef2;
 }
 
 input {
     flex: 1;
+    min-width: 0;
     border: none;
     outline: none;
     background: transparent;
     padding: 10px;
-    font-weight: 14px;
-    color: #fff;
+    font-size: 14px;
+    color: #ebeef2;
 }
 
 button {
+    margin: 2px;
     border: none;
     outline: none;
     padding: 16px 50px;
     background: #ff5945;
-    color: #fff;
+    color: #ebeef2;
     font-size: 16px;
     cursor: pointer;
     border-radius: 40px;
 }
 
+button:hover {
+    background: #ff4430;
+}
+
 ul li {
     list-style: none;
     font-size: 17px;
-    padding: 12px 8px 20px 50px;
+    padding: 12px 45px 20px 50px;
     user-select: none;
     cursor: pointer;
     position: relative;
+    overflow-wrap: anywhere;
 }
 
 ul li::before {
@@ -93,17 +102,36 @@ ul li::before {
     height: 28px;
     width: 28px;
     border-radius: 50%;
-    background-image: url(./images/unchecked.png);
+    background-image: url('./images/unchecked.png');
     background-size: cover;
     background-position: center;
-    top: 12px;
+    top: 8px;
     left: 8px;
 }
 
 ul li.checked {
     text-decoration: line-through;
+    color: #aaa;
 }
 
 ul li.checked::before {
-    background-image: url(./images/checked.png);
+    background-image: url('./images/checked.png');
+}
+
+ul li span {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 22px;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+ul li span:hover {
+    transform: scale(1.15);
 }
