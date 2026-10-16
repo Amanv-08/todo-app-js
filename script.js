@@ -6,6 +6,14 @@ const btn = document.querySelector('button');
 
 const listContainer = document.getElementById('list-container');
 
+function saveData() {
+    localStorage.setItem('data', listContainer.innerHTML);
+}
+
+function showTask() {
+    listContainer.innerHTML = localStorage.getItem('data');
+}
+
 function addTask() {
     if (inputBox.value === '') {
         alert('Write something...');
@@ -19,6 +27,7 @@ function addTask() {
         li.appendChild(span);
     }
     inputBox.value = '';
+    saveData();
 }
 
 btn.addEventListener('click', addTask);
@@ -35,4 +44,7 @@ listContainer.addEventListener('click', (evt) => {
     else if (evt.target.tagName === 'SPAN') {
         evt.target.parentElement.remove();
     }
+    saveData();
 }, false);
+
+showTask();
